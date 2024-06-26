@@ -8,7 +8,10 @@ PREFIXES=("/example" "/test" "/coke" "/ping")
 
 # NFDの再起動
 echo "Restarting NFD..."
-sudo nfd-stop && sudo nfd-start
+sudo nfd-stop
+sleep2
+sudo nfd-start
+sleep2
 
 # Faceの作成
 echo "Creating Face to Router..."

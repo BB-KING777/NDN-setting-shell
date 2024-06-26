@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # ルータの設定
 
 # 接続されているノードの数を入力
@@ -17,13 +16,11 @@ PREFIXES=("/example" "/test" "/coke" "/ping")
 
 # NFDの再起動
 echo "Restarting NFD..."
-if sudo nfd-stop && sudo nfd-start; then
-  echo "NFD restarted successfully."
-  sleep 2  # NFDが完全に起動するまで待機
-else
-  echo "Error restarting NFD." >&2
-  exit 1
-fi
+sudo nfd-stop
+sleep2
+sudo nfd-start
+sleep2
+
 
 # ノードごとにFaceの作成とFIBの設定
 for NODE_IP in "${NODE_IPS[@]}"; do
